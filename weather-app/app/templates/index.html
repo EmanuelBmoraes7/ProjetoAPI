@@ -1,9 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previsão do Tempo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .weather-info {
+            text-align: center;
+        }
+        
+        .city {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .temp {
+            font-size: 3.5em;
+            color: #764ba2;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .condition {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .search-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
 <body>
-    <h1>Previsão do Tempo</h1>
-    <p>Cidade: <span id="city">{{ weather.city }}</span></p>
-    <p>Temperatura: <span id="temp">{{ weather.temp_c }}°C</span></p>
-    <p>Condição: <span id="condition">{{ weather.condition }}</span></p>
+    <div class="container">
+        <h1>🌤️ Previsão do Tempo</h1>
+        
+        <div class="weather-info">
+            <div class="city">{{ weather.city }}</div>
+            <div class="temp">{{ weather.temp_c }}°C</div>
+            <div class="condition">{{ weather.condition }}</div>
+        </div>
+        
+        <form method="get" class="search-form">
+            <input 
+                type="text" 
+                name="city" 
+                placeholder="Digite o nome da cidade..."
+                required
+            >
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
 </body>
 </html>
